@@ -11,6 +11,7 @@ import { Switch } from "@/shared/components/Switch";
 import { Callout } from "@/shared/components/Callout";
 import { inputCls, primaryBtnCls, secondaryBtnCls } from "@/shared/lib/formStyles";
 import { usePermissions } from "@/modules/auth/hooks/usePermissions";
+import { AiKeysSection } from "@/modules/aiKeys/components/AiKeysSection";
 import { useUpdateTenant } from "../hooks/useTenants";
 import { KNOWLEDGE_BASE_MAX } from "../constants";
 import { TimezoneInput } from "./TimezoneInput";
@@ -291,6 +292,9 @@ export function AgentTab({ tenant }: { tenant: Tenant }) {
             </Field>
           </div>
         </section>
+
+        {/* Which keys the model above runs on — hidden for staff, who get a 403. */}
+        <AiKeysSection tenantId={tenant.id} />
 
         <section className="pg-tile space-y-4">
           <div>
