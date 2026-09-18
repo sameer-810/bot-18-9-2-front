@@ -2,6 +2,7 @@ import axios from "axios";
 import { store } from "@/app/store";
 import { clearAuth } from "@/modules/auth/authSlice";
 
+// Must include the /api prefix, e.g. https://your-api.onrender.com/api
 export const http = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5010/api",
   timeout: 20000,
